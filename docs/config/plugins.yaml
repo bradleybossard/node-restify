@@ -34,6 +34,7 @@ toc:
       - conditionalRequest
       - auditLogger
       - metrics
+      - openapi
   - name: Types
     children:
       - metrics~callback
