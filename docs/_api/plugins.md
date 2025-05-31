@@ -36,6 +36,7 @@ permalink: /docs/plugins-api/
     -   [conditionalRequest][27]
     -   [auditLogger][28]
     -   [metrics][29]
+    -   [openapi][60]
 -   [Types][30]
     -   [metrics~callback][31]
 -   [req.set][32]
@@ -1206,6 +1207,33 @@ server.on('after', restify.plugins.metrics({ server: server },
 Returns **[Function][35]** returns a function suitable to be used
   with restify server's `after` event
 
+### openapi
+
+Generates an OpenAPI specification from the server's routes and serves it at a
+configurable endpoint.
+
+**Parameters**
+
+-   `opts` **[Object][39]** options
+    -   `opts.server` **Server** restify server instance
+    -   `opts.path` **[String][41]?** path where the spec is exposed
+    -   `opts.version` **[String][41]?** API version reported in the spec
+    -   `opts.info` **[Object][39]?** additional info object
+    -   `opts.servers` **[Array][40]?** list of server objects for the spec
+    -   `opts.schemas` **[Object][39]?** schema definitions
+
+**Examples**
+
+```javascript
+server.use(restify.plugins.openapi({
+  server: server,
+  path: '/openapi.json',
+  version: '1.0.0'
+}));
+```
+
+Returns **[Function][35]** Handler
+
 ## Types
 
 
@@ -1391,3 +1419,4 @@ Returns **any** value stored in context
 [58]: https://developer.mozilla.org/docs/Web/Guide/HTML/HTML5
 
 [59]: https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined
+[60]: #openapi
